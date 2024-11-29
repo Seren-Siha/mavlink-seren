@@ -3,10 +3,19 @@
   <version>0</version>
   <dialect>0</dialect>
 
+  <enums>
+         <!-- Enums are defined here (optional) -->
+  </enums>
+
   <messages>
      <message id="11691" name="TARGET_LOCKING_STATUS">
       <description>Target locking status</description>
       <field type="int8_t" name="is_locked">Is locked to a target?</field>
     </message>
+
+    <message id="363" name="TELEMETRY">
+          <description>telemetry</description>
+         <field type="float" name="altitude">z position 1 / Altitude 1</field>
+         </message>
   </messages>
 </mavlink>
