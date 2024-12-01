@@ -13,9 +13,9 @@
       <field type="int8_t" name="is_locked">Is locked to a target?</field>
     </message>
 
-    <message id="363" name="TELEMETRY">
-          <description>telemetry</description>
-         <field type="float" name="altitude">z position 1 / Altitude 1</field>
-         </message>
+    <message id="11962" name="SEREN_ALTITUDE">
+      <description>telemetry</description>
+      <field type="float" name="altitude">z position 1 / Altitude 1</field>
+    </message>
   </messages>
 </mavlink>
