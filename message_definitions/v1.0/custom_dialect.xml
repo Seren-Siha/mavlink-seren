@@ -8,14 +8,80 @@
   </enums>
 
   <messages>
-     <message id="11691" name="TARGET_LOCKING_STATUS">
+    <!-- SEREN FLIGHT MODE CHANGE -->
+    <message id="11691" name="SEREN_FLIGHT_MODE_CHANGE">
       <description>Target locking status</description>
       <field type="int8_t" name="is_locked">Is locked to a target?</field>
     </message>
 
-    <message id="11962" name="SEREN_ALTITUDE">
-      <description>telemetry</description>
+    <!-- SEREN ALTITUDE TELEMETRY -->
+    <message id="11962" name="SEREN_TELEMETRY">
+      <description>Telemetry</description>
       <field type="float" name="altitude">z position 1 / Altitude 1</field>
     </message>
+
+    <!-- SEREN LOCKING INFORMATION -->
+    <message id="12001" name="SEREN_LOCK_INFO">
+      <description>Locking information for SEREN system</description>
+      <field type="uint64" name="timestamp">Timestamp</field>
+      <field type="uint8" name="start_hour">Start time (hour)</field>
+      <field type="uint8" name="start_min">Start time (minute)</field>
+      <field type="uint8" name="start_sec">Start time (second)</field>
+      <field type="uint16" name="start_ms">Start time (millisecond)</field>
+      <field type="uint8" name="end_hour">End time (hour)</field>
+      <field type="uint8" name="end_min">End time (minute)</field>
+      <field type="uint8" name="end_sec">End time (second)</field>
+      <field type="uint16" name="end_ms">End time (millisecond)</field>
+      <field type="uint8" name="auto_lock">Autonomous lock status (1 = active, 0 = inactive)</field>
+    </message>
+
+    <!-- SEREN TELEMETRY -->
+    <message id="12002" name="SEREN_TARGET_TELEMETRY">
+      <description>Telemetry data including vehicle status, target info, and GPS time</description>
+      <field type="uint64" name="timestamp">Timestamp</field>
+      <field type="float" name="latitude">Latitude of the UAV (degrees)</field>
+      <field type="float" name="longitude">Longitude of the UAV (degrees)</field>
+      <field type="float" name="altitude">Altitude of the UAV (meters)</field>
+      <field type="float" name="pitch">UAV pitch angle (degrees)</field>
+      <field type="float" name="yaw">UAV yaw angle (degrees)</field>
+      <field type="float" name="roll">UAV roll angle (degrees)</field>
+      <field type="float" name="speed">UAV speed (m/s)</field>
+      <field type="uint8" name="autonomous">Autonomous status (1 = Yes, 0 = No)</field>
+      <field type="uint8" name="locked">Lock status (1 = Locked, 0 = Not Locked)</field>
+      <field type="uint16" name="target_x">Target center X in image (pixels)</field>
+      <field type="uint16" name="target_y">Target center Y in image (pixels)</field>
+      <field type="uint16" name="target_width">Target bounding box width (pixels)</field>
+      <field type="uint16" name="target_height">Target bounding box height (pixels)</field>
+      <field type="uint8" name="gps_hour">GPS time (hours)</field>
+      <field type="uint8" name="gps_minute">GPS time (minutes)</field>
+      <field type="uint8" name="gps_second">GPS time (seconds)</field>
+      <field type="uint16" name="gps_millisecond">GPS time (milliseconds)</field>
+    </message>
+
+    <!-- SEREN KAMIKAZE MISSION INFORMATION -->
+    <message id="12003" name="SEREN_KAMIKAZE_INFO">
+      <description>Kamikaze mission timing and QR code data</description>
+      <field type="uint64" name="timestamp">Timestamp</field>
+      <field type="uint8" name="start_hour">Kamikaze start hour</field>
+      <field type="uint8" name="start_minute">Kamikaze start minute</field>
+      <field type="uint8" name="start_second">Kamikaze start second</field>
+      <field type="uint16" name="start_millisecond">Kamikaze start millisecond</field>
+      <field type="uint8" name="end_hour">Kamikaze end hour</field>
+      <field type="uint8" name="end_minute">Kamikaze end minute</field>
+      <field type="uint8" name="end_second">Kamikaze end second</field>
+      <field type="uint16" name="end_millisecond">Kamikaze end millisecond</field>
+      <field type="uint8[245]" name="qr_text">QR code content</field>
+    </message>
+
+    <!-- SEREN HSS COORDINATES -->
+    <message id="12004" name="SEREN_HSS_COORDINATES">
+      <description>Coordinates of the air defense system (HSS)</description>
+      <field type="uint64" name="timestamp">Timestamp</field>
+      <field type="float32[20]" name="hss_latitudes">HSS latitudes</field>
+      <field type="float32[20]" name="hss_longitudes">HSS longitudes</field>
+      <field type="float32[20]" name="hss_radius">HSS radius</field>
+    </message>
+
   </messages>
 </mavlink>
+
